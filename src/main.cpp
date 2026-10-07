@@ -5,7 +5,9 @@
 using namespace geode::prelude;
 
 class $modify(AlwaysWavePulsePlayer, PlayerObject) {
-    float m_pulseTime = 0.f;
+    struct Fields {
+        float pulseTime = 0.f;
+    };
 
     void updateStreaks(float dt) {
         PlayerObject::updateStreaks(dt);
@@ -13,13 +15,14 @@ class $modify(AlwaysWavePulsePlayer, PlayerObject) {
         if (!m_waveTrail || !m_isDart)
             return;
 
-        m_pulseTime += dt;
+        m_fields->pulseTime += dt;
 
-        // Smooth pulse that runs independently of the song.
         constexpr float speed = 5.0f;
         constexpr float strength = 0.25f;
 
-        float wave = (std::sin(m_pulseTime * speed) + 1.0f) * 0.5f;
+        float wave =
+            (std::sin(m_fields->pulseTime * speed) + 1.0f) * 0.5f;
+
         m_waveTrail->m_pulseSize = wave * strength;
     }
 };
