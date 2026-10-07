@@ -1,0 +1,11 @@
+{
+  "geode": "v5.10.1",
+  "gd": {
+    "android": "2.2081"
+  },
+  "id": "scottferret.always-wave-pulse",
+  "name": "Always Wave Pulse",
+  "version": "v1.0.0",
+  "developer": "Scott Ferret",
+  "description": "Makes the Geometry Dash wave trail pulse continuously without relying on music or beat triggers."
+}
